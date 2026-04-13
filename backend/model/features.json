@@ -1,0 +1,23 @@
+[
+  "sender_domain_age_days",
+  "sender_reputation_score",
+  "has_spf_record",
+  "has_dkim_signature",
+  "has_dmarc_policy",
+  "num_recipients",
+  "has_reply_to_mismatch",
+  "subject_has_urgent_words",
+  "num_links_in_body",
+  "num_suspicious_links",
+  "body_length",
+  "html_to_text_ratio",
+  "sending_hour",
+  "header_anomaly_score",
+  "ip_reputation_score",
+  "attachment_count",
+  "has_executable_attachment",
+  "auth_score",
+  "link_density",
+  "is_off_hours",
+  "risk_composite"
+]

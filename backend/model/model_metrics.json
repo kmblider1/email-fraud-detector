@@ -1,0 +1,18 @@
+{
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1_score": 1.0,
+  "roc_auc": 1.0,
+  "train_samples": 9600,
+  "test_samples": 2400,
+  "total_samples": 12000,
+  "n_features": 21,
+  "n_estimators": 300,
+  "cv_f1_mean": 1.0,
+  "cv_f1_std": 0.0,
+  "true_negative": 1680,
+  "false_positive": 0,
+  "false_negative": 0,
+  "true_positive": 720
+}

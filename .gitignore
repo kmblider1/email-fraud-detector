@@ -1,0 +1,28 @@
+# ─── Python ───
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# ─── Muhim: Bu fayllarni hech qachon git ga qo'shmang! ───
+.env
+*.db
+*.sqlite3
+*.pkl
+
+# ─── Model fayllar (katta) ───
+backend/model/fraud_model.pkl
+backend/database/fraud.db
+
+# ─── Node ───
+node_modules/
+dist/
+.DS_Store
+
+# ─── VS Code ───
+.vscode/
+*.log
