@@ -126,3 +126,31 @@ def get_me(current_user: User = Depends(get_current_user)):
         "role": current_user.role,
         "created_at": current_user.created_at
     }
+
+
+class UpdateProfileSchema(BaseModel):
+    username: Optional[str] = None
+    email: Optional[str] = None
+    password: Optional[str] = None
+
+@router.put("/update-profile")
+def update_profile(data: UpdateProfileSchema, current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    if data.username and data.username != current_user.username:
+        if db.query(User).filter(User.username == data.username).first():
+            raise HTTPException(status_code=400, detail="Bu username band")
+        current_user.username = data.username
+    if data.email and data.email != current_user.email:
+        if db.query(User).filter(User.email == data.email).first():
+            raise HTTPException(status_code=400, detail="Bu email band")
+        current_user.email = data.email
+    if data.password:
+        current_user.password = hash_password(data.password)
+    db.commit()
+    db.refresh(current_user)
+    token = create_token({"user_id": current_user.id, "role": current_user.role})
+    return {
+        "message": "Profil yangilandi",
+        "access_token": token,
+        "user": {"id": current_user.id, "username": current_user.username,
+                 "email": current_user.email, "role": current_user.role}
+    }
